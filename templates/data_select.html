@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户操作信息管理系统</title>
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../static/css/data_select.css">
+</head>
+
+<body>
+    <div class="header">
+        <span class="left">用 户 操 作 信 息 查 询</span>
+        <span class="right">你 好，{{user_info}}用户!</span>
+        <span class="right_right"><a href="/">退出登录</a></span>
+    </div>
+    <div class="leftside">
+        <ul>
+            <li><a href="/data_insert">操作信息录入</a></li>
+            <li class="first"><a href="#">操作信息查询</a></li>
+            <li><a href="/administrator">系统管理员变动</a></li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <h1 class="sub-header">用 户 操 作 信 息 查 询 系 统</h1>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-striped" cellspaing="10">
+                <tbody>
+                    <tr>
+                        <form action="" method="post">
+                            <td><label for="#">请选择查询的方式</label></td>
+                            <td><select name="selected_one">
+                                    <option value="operationID" selected="selected">operationID</option>
+                                    <option value="switchID">switchID</option>
+                                    <option value="operatorUser">operatorUser</option>
+                                    <option value="userOperation">userOperation</option>
+                                    <option value="timeSize">timeSize</option>
+                                    <option value="opStatus">opStatus</option>
+                                </select></td>
+                            <td><input class="long" type="text" name="query"></td>
+                            <td><input class="last" type="submit" value="查询" /></td>
+                            <td><span>查询结果:{{query_result}}</span></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <td>operationID</td>
+                        <td>deviceMac</td>
+                        <td>switchID</td>
+                        <td>operatorUser</td>
+                        <td>userOperation</td>
+                        <td>timeSize</td>
+                        <td>opStatus</td>
+                    </tr>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{result[0]}}</td>
+                        <td>{{result[1]}}</td>
+                        <td>{{result[2]}}</td>
+                        <td>{{result[3]}}</td>
+                        <td>{{result[4]}}</td>
+                        <td>{{result[5]}}</td>
+                        <td>{{result[7]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

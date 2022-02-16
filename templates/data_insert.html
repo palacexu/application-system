@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户操作信息管理系统</title>
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../static/css/data_insert.css">
+</head>
+
+<body>
+    <div class="header">
+        <span class="left">用 户 操 作 信 息 录 入</span>
+        <span class="right">你 好，{{user_info}}用 户!</span>
+        <span class="right_right"><a href="/">退出登录</a></span>
+    </div>
+    <div class="leftside">
+        <ul>
+            <li class="first"><a href="#">操作信息录入</a></li>
+            <li><a href="/data_select">操作信息查询</a></li>
+            <li><a href="/administrator">系统管理员变动</a></li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <h1 class="sub-header">用 户 操 作 信 息 录 入 系 统</h1>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>operationID</th>
+                        <th>switchID</th>
+                        <th>operatorUser</th>
+                        <th>userOperation</th>
+                        <th>timeSize</th>
+                        <th>opStatus</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form action="" method="post">
+                            <td><input class="long" name="operationID" type="text"/></td>
+                            <td><input class="long" name="switchID" type="text"/></td>
+                            <td><input class="long" name="operatorUser" type="text"/>
+                            <td><input class="long" name="userOperation" type="text"/></td>
+                            <td><input class="long" name="timeSize" type="text" /></td>
+                            <td><input class="long" name="opStatus" type="text" /></td>
+                            <td><input class="last" type="submit" value="提交" /></td>
+                            <td><span>提交结果:{{insert_result}}</span></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <td>operationID</td>
+                        <td>deviceMac</td>
+                        <td>switchID</td>
+                        <td>operatorUser</td>
+                        <td>userOperation</td>
+                        <td>timeSize</td>
+                        <td>opStatus</td>
+                    </tr>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{result[0]}}</td>
+                        <td>{{result[1]}}</td>
+                        <td>{{result[2]}}</td>
+                        <td>{{result[3]}}</td>
+                        <td>{{result[4]}}</td>
+                        <td>{{result[5]}}</td>
+                        <td>{{result[7]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

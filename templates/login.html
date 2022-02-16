@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>用户操作信息管理系统登陆</title>
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url("../static/images/bgc.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+         }
+    </style>
+</head>
+<body>
+    <div id="maxbox">
+        <h1>用户操作信息管理系统</h1>
+        <h2>Please sign in</h2>
+        <div class="inputbox">
+            <form name="frm" action="" method="post">
+                <div class="inputText">
+                    <span class="iconfont icon-mine"></span>
+                    <input class="username" type="text" placeholder="admin_name" name="user" style="color:white"/>
+                </div>
+                <div class="inputText">
+                    <span class="iconfont icon-lock"></span>
+                    <input type="password" placeholder="Password" name="pwd" style="color:white" />
+                    <br>
+                    <input class="remember" name="remember" type="checkbox" value="" checked="checked">
+                    <span style="color:rgb(255, 255, 255)">Remember me</span>
+                </div>
+                <input class="inputButton" type="submit" value="Sign in"/>
+            </form>
+            <div style="color: white">{{msg}}</div>
+        </div>
+    </div>
+</body>
+</html>
