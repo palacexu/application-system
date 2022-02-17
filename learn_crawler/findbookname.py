@@ -1,7 +1,9 @@
 import json
 import requests
 from bs4 import BeautifulSoup
+import os
 
+"""最关注的书籍保存到json文件中"""
 
 def get_html(url, header, kv):
     """获取各类别url的html文本，存入列表"""
@@ -36,6 +38,34 @@ def generate_list(html_texts):
     return all_books
 
 
+def save_file(save_path, source):
+    # try:
+    #     if not os.path.exists(save_path):
+    #         with open(save_path, 'w') as f:
+    #             f.write(str(source))
+    #             print('文件保存成功！')
+    #     else:
+    #         print('文件已存在')
+    # except:
+    #     print('保存失败！')
+    '''
+    json_str = json.dumps(source,indent=4)
+    try:
+        with open(save_path, 'w') as json_file:
+            json_file.write(json_str)
+            print('文件保存成功！')
+    except:
+        print('保存失败！')
+    '''
+    # json_str = json.dumps(source,indent=4)
+    try:
+        with open(save_path, 'w',encoding='utf-8') as f:
+            json.dump(source,f)
+            print('文件保存成功！')
+    except:
+        print('保存失败！')
+
+
 def main():
     header = {'User-Agent': 'Mozilla/5.0'}
     url = 'https://book.douban.com/chart'
@@ -48,7 +78,10 @@ def main():
     # for books in generate_list(html_texts):
     #     print(books)
     booknames_dict = generate_list(html_texts)
+    path = './concernig books.json'
+    save_file(path, booknames_dict)
     print(booknames_dict)
+
 
 
 if __name__ == '__main__':
