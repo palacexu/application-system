@@ -60,7 +60,7 @@ def save_file(save_path, source):
     # json_str = json.dumps(source,indent=4)
     try:
         with open(save_path, 'w',encoding='utf-8') as f:
-            json.dump(source,f)
+            json.dump(source,f,ensure_ascii=False)
             print('文件保存成功！')
     except:
         print('保存失败！')
