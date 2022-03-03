@@ -1,5 +1,6 @@
 # https://book.douban.com/robots.txt
 User-agent: *
+
 Disallow: /subject_search
 
 Disallow: /search
