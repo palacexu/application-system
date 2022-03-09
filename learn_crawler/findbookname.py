@@ -69,8 +69,8 @@ def save_file(save_path, source):
 def main():
     header = {'User-Agent': 'Mozilla/5.0'}
     url = 'https://book.douban.com/chart'
-    kv = {'subcat':['all','literary','novel','history','social','tech','art','drama','business','comics','suspense_novel','science_fiction']}
-    #kv = {'subcat':'all'}
+    #kv = {'subcat':['all','literary','novel','history','social','tech','art','drama','business','comics','suspense_novel','science_fiction']}
+    kv = {'subcat':'all'}
     html_texts = get_html(url, header, kv)
     #print(html_texts[0])
     # for html_text in html_texts:
